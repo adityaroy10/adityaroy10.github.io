@@ -33,6 +33,24 @@
   margin-bottom: var(--space-xs);
 }
 
+/* Thapar coursework: 3-column layout */
+.coursework-cols {
+  column-count: 3;
+  column-gap: var(--space-lg);
+}
+
+@media (max-width: 640px) {
+  .coursework-cols {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 400px) {
+  .coursework-cols {
+    column-count: 1;
+  }
+}
+
 .card__details-heading {
   font-size: 0.8125rem;
   font-weight: 600;

@@ -66,6 +66,7 @@ The `.nojekyll` file is included so GitHub Pages serves the site as static files
 
 - **Theme / accent:** `css/variables.css` - change `--accent` and `--accent-dim`.
 - **Content:** `index.html` - hero, education, experience, projects, contact links (LinkedIn, GitHub, resume).
+- **Profile photo:** Add your photo as `assets/profile.jpg` (circular, LinkedIn-style, shown in the hero). If the file is missing, the hero still works but the image area will be broken.
 - **Easter egg:** Konami code (↑↑↓↓←→←→BA) on the main page.
 
 ## Structure
