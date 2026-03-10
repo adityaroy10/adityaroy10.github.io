@@ -33,20 +33,24 @@
   margin-bottom: var(--space-xs);
 }
 
-/* Thapar coursework: 3-column layout */
+/* Thapar coursework: 3-column layout (webkit prefix for Safari/GitHub Pages) */
 .coursework-cols {
+  -webkit-column-count: 3;
   column-count: 3;
+  -webkit-column-gap: var(--space-lg);
   column-gap: var(--space-lg);
 }
 
 @media (max-width: 640px) {
   .coursework-cols {
+    -webkit-column-count: 2;
     column-count: 2;
   }
 }
 
 @media (max-width: 400px) {
   .coursework-cols {
+    -webkit-column-count: 1;
     column-count: 1;
   }
 }
