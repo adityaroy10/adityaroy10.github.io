@@ -188,6 +188,48 @@
   }
 }
 
+/* Phone: date + location on one row, card full width so text isn’t squished */
+@media (max-width: 600px) {
+  .timeline::before {
+    left: calc(var(--timeline-marker-width) / 2 - 1px);
+  }
+  .timeline__item {
+    grid-template-columns: var(--timeline-marker-width) 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: var(--space-sm) var(--space-md);
+  }
+  .timeline__date {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: left;
+    font-size: 0.8125rem;
+  }
+  .timeline__location {
+    grid-column: 3;
+    grid-row: 1;
+    margin-top: 0;
+    padding-top: 0;
+    text-align: right;
+    font-size: 0.8125rem;
+  }
+  .timeline__marker {
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: 0.5rem;
+  }
+  .timeline__card {
+    grid-column: 2 / -1;
+    grid-row: 2;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-inline: var(--space-md);
+  }
+}
+
 .timeline__date {
   font-size: 0.875rem;
   font-weight: 600;
