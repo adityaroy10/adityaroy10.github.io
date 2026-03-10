@@ -1,0 +1,171 @@
+/* ===== Expandable cards: hover glow + dim rest, click to expand ===== */
+
+/* ----- Shared expandable details (collapsed by default) ----- */
+.expandable__details,
+.card__details {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--duration-slow) var(--ease-out);
+}
+
+.expandable.is-expanded .expandable__details,
+.expandable.is-expanded .card__details {
+  grid-template-rows: 1fr;
+}
+
+.expandable__details-inner,
+.card__details-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.card__details ul,
+.project-card__details ul {
+  margin: 0 0 var(--space-md);
+  padding-left: 1.25rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.card__details li,
+.project-card__details li {
+  margin-bottom: var(--space-xs);
+}
+
+.card__details-heading {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Footer: hint + link at bottom right of tile */
+.timeline__card.expandable__card,
+.project-card .project-card__body {
+  display: flex;
+  flex-direction: column;
+}
+
+.expandable__footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: auto;
+  padding-top: var(--space-md);
+}
+
+/* Hint: "Click to expand" / "Click to collapse" */
+.expandable__hint {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  transition: color var(--duration-fast);
+}
+
+.expandable.is-expanded .expandable__hint {
+  color: var(--accent);
+}
+
+/* Project card: link on left inside expanded details only (hidden when collapsed) */
+.project-card__details .project-card__links {
+  margin-top: var(--space-md);
+}
+
+/* When collapsed: summary grey; when expanded: summary white */
+.card__summary,
+.project-card__summary {
+  margin: 0 0 0;
+  color: var(--text-secondary);
+  transition: color var(--duration-normal) var(--ease-out);
+}
+
+.expandable.is-expanded .card__summary,
+.expandable.is-expanded .project-card__summary {
+  margin-bottom: var(--space-md);
+  color: var(--text-primary);
+}
+
+/* ----- Hover: glow focused card, dim others ----- */
+.timeline[data-focus-section] .timeline__item {
+  transition: opacity var(--duration-normal) var(--ease-out);
+}
+
+.timeline[data-focus-section]:has(.timeline__item:hover) .timeline__item:not(:hover),
+.timeline[data-focus-section]:has(.timeline__item.is-expanded) .timeline__item:not(.is-expanded) {
+  opacity: 0.35;
+}
+
+.timeline__card {
+  cursor: pointer;
+}
+
+.timeline__item:hover .timeline__card,
+.timeline__item.is-expanded .timeline__card {
+  border-color: rgba(34, 211, 200, 0.35);
+  box-shadow: 0 0 0 1px rgba(34, 211, 200, 0.2), 0 0 32px var(--accent-glow);
+}
+
+.timeline__item:hover .timeline__marker,
+.timeline__item.is-expanded .timeline__marker {
+  box-shadow: 0 0 0 4px var(--bg-secondary), 0 0 20px var(--accent-glow);
+  transform: scale(1.15);
+}
+
+/* Projects: same hover/expand dim + glow */
+.grid--projects[data-focus-section] .project-card {
+  transition: opacity var(--duration-normal) var(--ease-out),
+              transform var(--duration-normal) var(--ease-out),
+              border-color var(--duration-normal),
+              box-shadow var(--duration-normal);
+}
+
+.grid--projects[data-focus-section]:has(.project-card:hover) .project-card:not(:hover),
+.grid--projects[data-focus-section]:has(.project-card.is-expanded) .project-card:not(.is-expanded) {
+  opacity: 0.35;
+}
+
+.grid--projects[data-focus-section] .project-card:hover,
+.grid--projects[data-focus-section] .project-card.is-expanded {
+  border-color: rgba(34, 211, 200, 0.35);
+  box-shadow: 0 0 0 1px rgba(34, 211, 200, 0.2), 0 0 32px var(--accent-glow);
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Expanded project: becomes primary focus - large, centered, on top */
+.grid--projects .project-card.is-expanded {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  width: min(90vw, 720px);
+  max-height: 85vh;
+  z-index: 100;
+  overflow-y: auto;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--border);
+  animation: project-expand-in var(--duration-slow) var(--ease-out) forwards;
+}
+
+@keyframes project-expand-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.projects-section-wrap:has(.project-card.is-expanded) .projects-backdrop {
+  display: block;
+}
+

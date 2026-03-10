@@ -1,0 +1,32 @@
+/* ===== Extra components (buttons already in animations.css) ===== */
+
+/* Ensure section titles get reveal */
+.section__title.reveal,
+.section__subtitle.reveal {
+  transition-delay: 0s;
+}
+
+.section__subtitle.reveal.reveal-visible {
+  transition-delay: 0.08s;
+}
+
+/* Optional: subtle gradient on hero name */
+.hero__name {
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover lift */
+.timeline__card.card:hover,
+.outside-card.card:hover {
+  transform: translateX(4px);
+}
+
+.project-card .project-card__thumb {
+  transition: background var(--duration-normal);
+}
+.project-card:hover .project-card__thumb {
+  background: var(--bg-primary);
+}

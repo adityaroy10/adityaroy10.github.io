@@ -1,0 +1,113 @@
+/* ===== Animations & transitions ===== */
+
+/* Hero stagger */
+.animate-in {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fade-up 0.6s var(--ease-out) forwards;
+}
+.animate-in[style*="--i: 1"] { animation-delay: 0.1s; }
+.animate-in[style*="--i: 2"] { animation-delay: 0.2s; }
+.animate-in[style*="--i: 3"] { animation-delay: 0.3s; }
+.animate-in[style*="--i: 4"] { animation-delay: 0.4s; }
+
+@keyframes fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll reveal (JS adds .reveal-visible) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.timeline .reveal { transition-delay: 0s; }
+.timeline .reveal.reveal-visible { transition-delay: 0.05s; }
+.timeline__item.reveal { transition-delay: 0.1s; }
+.timeline__item.reveal.reveal-visible { transition-delay: 0.15s; }
+
+.grid--projects .reveal { transition-delay: 0s; }
+.grid--projects .project-card:nth-child(1).reveal.reveal-visible { transition-delay: 0.05s; }
+.grid--projects .project-card:nth-child(2).reveal.reveal-visible { transition-delay: 0.1s; }
+.grid--projects .project-card:nth-child(3).reveal.reveal-visible { transition-delay: 0.15s; }
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-dim));
+  z-index: 101;
+  transition: width 0.1s linear;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background var(--duration-fast), color var(--duration-fast), transform var(--duration-fast);
+}
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+.btn--primary:hover {
+  background: var(--accent-dim);
+  color: var(--bg-primary);
+}
+
+.btn--ghost {
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+.btn--ghost:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn--small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+/* Easter egg (Konami: ↑↑↓↓←→←→BA) */
+body.easter-egg {
+  animation: egg-glow 0.5s ease-out;
+}
+@keyframes egg-glow {
+  0% { filter: none; }
+  50% { filter: drop-shadow(0 0 40px var(--accent-glow)); }
+  100% { filter: none; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body.easter-egg .hero__name {
+    animation: egg-shake 0.4s ease-in-out 2;
+  }
+}
+@keyframes egg-shake {
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}

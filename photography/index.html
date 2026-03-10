@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Photography, Aditya Roy Chowdhury. Things I find pretty or interesting." />
+  <title>Photography | Aditya Roy Chowdhury</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/subpages.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html" class="nav__logo">AR</a>
+      <a href="../index.html#outside" class="subpage-back" style="margin-left: auto; margin-bottom: 0;">← Back to portfolio</a>
+    </nav>
+  </header>
+
+  <main class="main" style="padding-top: var(--header-height);">
+    <section class="section">
+      <div class="container">
+        <a href="../index.html#outside" class="subpage-back">← Back to portfolio</a>
+        <h1 class="section__title">Photography</h1>
+        <p class="section__subtitle">Things I find pretty or interesting.</p>
+        <div class="gallery" id="gallery" aria-busy="true">
+          <p class="gallery-empty">Loading…</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="gallery-overlay" id="galleryOverlay" aria-hidden="true" role="dialog" aria-label="Expanded photo">
+    <div class="gallery-overlay__backdrop"></div>
+    <div class="gallery-overlay__inner">
+      <img src="" alt="" id="galleryOverlayImg" decoding="async" />
+    </div>
+  </div>
+
+  <script src="js/gallery.js"></script>
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aditya Roy Chowdhury, ML Engineer & MS CS @ USC. Portfolio: projects, experience, contact." />
+  <title>Aditya Roy Chowdhury | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/expandable.css" />
+</head>
+<body>
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav" aria-label="Main">
+      <a href="#hero" class="nav__logo">AR</a>
+      <ul class="nav__links">
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#outside">Beyond</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero__content">
+        <p class="hero__greeting animate-in">Hi, I'm</p>
+        <h1 class="hero__name animate-in" style="--i: 1">Aditya Roy Chowdhury</h1>
+        <p class="hero__tagline animate-in" style="--i: 2">ML Engineer & MS CS @ USC</p>
+        <p class="hero__bio animate-in" style="--i: 3">Machine Learning Engineer and MS CS student at USC specializing in model compression, multimodal systems, and ML deployment. Experienced in building production-oriented ML pipelines across vision, language models, and embedded platforms.</p>
+        <div class="hero__cta animate-in" style="--i: 4">
+          <a href="#projects" class="btn btn--primary">View work</a>
+          <a href="#contact" class="btn btn--ghost">Get in touch</a>
+        </div>
+        <div class="hero__social animate-in" style="--i: 5" aria-label="Social links">
+          <a href="mailto:rcaditya10@gmail.com" class="icon-link" aria-label="Email">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/adityaroy12" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="LinkedIn">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://github.com/adityaroy10" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="GitHub">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .32.21.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero__scroll-hint" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-indicator"></div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="education" aria-labelledby="education-heading">
+      <div class="container">
+        <h2 id="education-heading" class="section__title reveal">Education</h2>
+        <p class="section__subtitle reveal">Academic background.</p>
+        <div class="timeline" data-focus-section>
+          <article class="timeline__item expandable reveal" tabindex="0">
+            <span class="timeline__date">Aug 2024 to May 2026</span>
+            <div class="timeline__marker"></div>
+            <div class="timeline__card card expandable__card">
+              <span class="card__meta card__meta--edu">University of Southern California</span>
+              <h3 class="card__title">Master of Science in Computer Science</h3>
+              <p class="card__summary">GPA: <span class="card__gpa">3.83/4.00</span></p>
+              <div class="card__details expandable__details">
+                <div class="card__details-inner">
+                  <p class="card__details-heading">Relevant Coursework</p>
+                  <ul>
+                    <li>ML for Data Science</li>
+                    <li>Advanced Computer Vision</li>
+                    <li>Software Engineering</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="expandable__footer">
+                <p class="expandable__hint">Click to expand</p>
+              </div>
+            </div>
+            <span class="timeline__location"><span class="timeline__location-line">Los Angeles, California</span><span class="timeline__location-line">USA</span></span>
+          </article>
+          <article class="timeline__item expandable reveal" tabindex="0">
+            <span class="timeline__date">Aug 2020 to June 2024</span>
+            <div class="timeline__marker"></div>
+            <div class="timeline__card card expandable__card">
+              <span class="card__meta card__meta--edu">Thapar Institute of Engineering Technology</span>
+              <h3 class="card__title">Bachelor of Engineering in Computer Science and Engineering</h3>
+              <p class="card__summary">GPA: <span class="card__gpa">9.33/10.00</span></p>
+              <div class="card__details expandable__details">
+                <div class="card__details-inner">
+                  <p class="card__details-heading">Relevant Coursework</p>
+                  <ul>
+                    <li>Quantum Computing</li>
+                    <li>Artificial Intelligence</li>
+                    <li>Machine Learning</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="expandable__footer">
+                <p class="expandable__hint">Click to expand</p>
+              </div>
+            </div>
+            <span class="timeline__location"><span class="timeline__location-line">Patiala, Punjab</span><span class="timeline__location-line">India</span></span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience" aria-labelledby="experience-heading">
+      <div class="container">
+        <h2 id="experience-heading" class="section__title reveal">Experience</h2>
+        <p class="section__subtitle reveal">Where I've built and shipped.</p>
+        <div class="timeline" data-focus-section>
+          <article class="timeline__item expandable reveal" tabindex="0">
+            <span class="timeline__date">Feb 2024 to Apr 2024</span>
+            <div class="timeline__marker"></div>
+            <div class="timeline__card card expandable__card">
+              <span class="card__meta">ICTP (International Centre for Theoretical Physics)</span>
+              <h3 class="card__title">Machine Learning Engineer Intern</h3>
+              <p class="card__summary">Built AI that can spot objects in fog and poor visibility for safer driving, and made it run on low-power hardware so it could be used in real vehicles.</p>
+              <div class="card__details expandable__details">
+                <div class="card__details-inner">
+                  <ul>
+                    <li>Developed a Keras/TensorFlow object detection pipeline for adverse visibility conditions, utilizing knowledge distillation to compress SpineNet 49S backbone by 50% by maximizing SSIM.</li>
+                    <li>Enabled FPGA deployment by porting Python model inference logic to C++/HLS with Vivado, generating hardware-synthesizable code.</li>
+                    <li>Collaborated with stakeholders to produce 10K LOC of Python/C++, building models and reusable tooling to streamline data processing and model evaluation.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="expandable__footer">
+                <p class="expandable__hint">Click to expand</p>
+              </div>
+            </div>
+            <span class="timeline__location"><span class="timeline__location-line">Trieste</span><span class="timeline__location-line">Italy</span></span>
+          </article>
+          <article class="timeline__item expandable reveal" tabindex="0">
+            <span class="timeline__date">Jun 2023 to Jul 2023</span>
+            <div class="timeline__marker"></div>
+            <div class="timeline__card card expandable__card">
+              <span class="card__meta">Thapar Institute of Engineering Technology</span>
+              <h3 class="card__title">Machine Learning Research Intern</h3>
+              <p class="card__summary">Led a small team building an app that monitors heart health in real time and alerts when something may need a doctor’s attention, using AI to spot irregular heart rhythms.</p>
+              <div class="card__details expandable__details">
+                <div class="card__details-inner">
+                  <ul>
+                    <li>Led a 3-person engineering team through Agile sprints to build a full-stack health monitoring system, coordinating integration of a Flask backend with a responsive HTML/CSS frontend for real-time visualization.</li>
+                    <li>Mitigated severe class imbalance in arrhythmia classification by constructing a tailored signal preprocessing pipeline, attaining 0.7 recall with a 1D ResNet.</li>
+                    <li>Ensured instant notification for critical cardiac events while minimizing false positives by engineering a hybrid alerting mechanism that combines ML predictions with static vital thresholds.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="expandable__footer">
+                <p class="expandable__hint">Click to expand</p>
+              </div>
+            </div>
+            <span class="timeline__location"><span class="timeline__location-line">Patiala, Punjab</span><span class="timeline__location-line">India</span></span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <h2 id="projects-heading" class="section__title reveal">Projects</h2>
+        <p class="section__subtitle reveal">Selected work.</p>
+        <div class="projects-section-wrap">
+          <div class="grid grid--projects" data-focus-section>
+          <article class="project-card expandable reveal" tabindex="0">
+            <div class="project-card__thumb">
+              <img src="assets/findly.png" alt="Findly, file explorer and search interface" />
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Findly: Privacy-First RAG Agent</h3>
+              <p class="project-card__summary">A search tool that finds information across your documents and images while keeping everything on your own device, with no cloud and no data leaving your computer.</p>
+              <div class="project-card__details expandable__details">
+                <div class="expandable__details-inner">
+                  <ul>
+                    <li>Architected a RAG pipeline with a dual-indexing backend to separate text (384d) and image (512d) vector spaces using FAISS and SQLite, achieving a 4.33ms mean search latency over 10K queries for CPU-only inference.</li>
+                    <li>Constructed a synchronization pipeline using SHA256 file signatures and thread-safe locking to ensure index integrity, maintaining a 42.27ms/file indexing throughput.</li>
+                    <li>Verified a memory-efficient core and currently undergoing integration of Sentence Transformers and CLIP to replace mock embeddings.</li>
+                  </ul>
+                  <div class="project-card__links">
+                    <a href="#" class="link link--accent">Link</a>
+                  </div>
+                </div>
+              </div>
+              <div class="expandable__footer">
+                <p class="expandable__hint">Click to expand</p>
+              </div>
+            </div>
+          </article>
+          <article class="project-card expandable reveal" tabindex="0">
+            <div class="project-card__thumb">
+              <img src="assets/codemaya.png" alt="CodeMaya, 3D render example (snowman figure)" />
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">CodeMaya: CGI Assistant</h3>
+              <p class="project-card__summary">Describe a scene in plain English and the system turns it into a 3D scene you can render, like having an assistant that writes the technical instructions for you.</p>
+              <div class="project-card__details expandable__details">
+                <div class="expandable__details-inner">
+                  <ul>
+                    <li>Spearheaded development of two-stage training pipeline, cascading Supervised Fine-Tuning with a multimodal alignment phase to train LLM to convert natural language prompts into executable scripts for 3D Renders.</li>
+                    <li>Specialized CodeLlama-7B for domain-specific syntax by LoRA fine-tuning on scraped documentation and code, resulting in 92% syntax validity.</li>
+                    <li>Distilled semantic knowledge from CLIP to align generated 3D renders with text prompts by integrating a visual feedback loop based on Contrastive Loss, yielding 91% structural similarity.</li>
+                  </ul>
+                  <div class="project-card__links">
+                    <a href="https://github.com/adityaroy10/CodeMaya" target="_blank" rel="noopener noreferrer" class="link link--accent">Link</a>
+                  </div>
+                </div>
+              </div>
+              <div class="expandable__footer">
+                <p class="expandable__hint">Click to expand</p>
+              </div>
+            </div>
+          </article>
+          <article class="project-card expandable reveal" tabindex="0">
+            <div class="project-card__thumb">
+              <img src="assets/parkinsons.png" alt="Forecasting Parkinson's, UPDRS 2 predicted vs actual" />
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Forecasting Parkinson's Progression</h3>
+              <p class="project-card__summary">A system that helps predict how Parkinson’s may progress over time using only routine check-up scores, so doctors can plan care without extra tests. Research published in a peer-reviewed book.</p>
+              <div class="project-card__details expandable__details">
+                <div class="expandable__details-inner">
+                  <ul>
+                    <li>Modeled non-linear disease trajectories to predict Parkinson's progression by devising an ML pipeline on a longitudinal dataset of 237 subjects.</li>
+                    <li>Demonstrated a cost-effective alternative to complex biomarker screening by delivering 0.57 MSE on purely non-invasive features (UPDRS scores).</li>
+                    <li>Validated findings by publishing research paper in Springer Lecture Notes in Computer Science.</li>
+                  </ul>
+                  <div class="project-card__links">
+                    <a href="https://link.springer.com/chapter/10.1007/978-3-031-50583-6_18" target="_blank" rel="noopener noreferrer" class="link link--accent">Link</a>
+                  </div>
+                </div>
+              </div>
+              <div class="expandable__footer">
+                <p class="expandable__hint">Click to expand</p>
+              </div>
+            </div>
+          </article>
+          <article class="project-card expandable reveal" tabindex="0">
+            <div class="project-card__thumb">
+              <img src="assets/dimming-the-danger.png" alt="Dimming the Danger prototype, Arduino, relay module, LED assembly, servo" />
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Dimming The Danger: Collision Avoidance System</h3>
+              <p class="project-card__summary">A headlight system that automatically dims only the part that would glare at oncoming drivers and uses AI to spot cars in the dark so it knows when to dim.</p>
+              <div class="project-card__details expandable__details">
+                <div class="expandable__details-inner">
+                  <ul>
+                    <li>Prototyped an Adaptive Driving Beam (ADB) system on an Arduino microcontroller, programming a zone-based control logic to selectively deactivate LED sectors for oncoming traffic.</li>
+                    <li>Adapted YOLOv8 for low-light conditions by optimizing model parameters on a custom-curated dataset of nighttime driving scenarios, achieving 0.89 recall for vehicle detection.</li>
+                  </ul>
+                  <div class="project-card__links">
+                    <a href="https://github.com/adityaroy10/DimmingTheDanger---Collision-Avoidance-System" target="_blank" rel="noopener noreferrer" class="link link--accent">Link</a>
+                  </div>
+                </div>
+              </div>
+              <div class="expandable__footer">
+                <p class="expandable__hint">Click to expand</p>
+              </div>
+            </div>
+          </article>
+          <article class="project-card expandable reveal" tabindex="0">
+            <div class="project-card__thumb">
+              <img src="assets/spinenet.png" alt="SpineNet49S Keras, network architecture diagram" />
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">SpineNet49S Keras</h3>
+              <p class="project-card__summary">Rebuilt a well-known Google AI image model so researchers and developers can use and experiment with it easily; shared publicly for free.</p>
+              <div class="project-card__details expandable__details">
+                <div class="expandable__details-inner">
+                  <ul>
+                    <li>Reproduced Google Research's SpineNet architecture in Keras, implementing the novel scale-permuted backbone with cross-scale connections and releasing model for open-source access on Hugging Face.</li>
+                  </ul>
+                  <div class="project-card__links">
+                    <a href="https://github.com/adityaroy10/SpineNet49S" target="_blank" rel="noopener noreferrer" class="link link--accent">Link</a>
+                  </div>
+                </div>
+              </div>
+              <div class="expandable__footer">
+                <p class="expandable__hint">Click to expand</p>
+              </div>
+            </div>
+          </article>
+          </div>
+          <div class="projects-backdrop" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="outside" aria-labelledby="outside-heading">
+      <div class="container">
+        <h2 id="outside-heading" class="section__title reveal">Beyond academics</h2>
+        <p class="section__subtitle reveal">Hobbies, volunteering, or side interests.</p>
+        <div class="outside-grid reveal">
+          <a href="photography/index.html" class="outside-card card outside-card--link">
+            <h3 class="card__title">Photography</h3>
+            <p class="card__text">Things I find pretty or interesting.</p>
+          </a>
+          <a href="volunteering/index.html" class="outside-card card outside-card--link">
+            <h3 class="card__title">Volunteering</h3>
+            <p class="card__text">Community involvement.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--contact" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-layout reveal">
+          <div class="contact-header">
+            <h2 id="contact-heading" class="section__title">Get in touch</h2>
+            <p class="section__subtitle">Open to opportunities and conversations.</p>
+          </div>
+          <div class="contact-content">
+            <div class="contact-row">
+              <a href="https://linkedin.com/in/adityaroy12" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="LinkedIn">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+              <a href="https://github.com/adityaroy10" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="GitHub">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .32.21.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              </a>
+              <a href="mailto:rcaditya10@gmail.com" class="icon-link" id="contactEmail" aria-label="Email">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              </a>
+              <button type="button" class="btn btn--small btn--ghost copy-btn" id="copyEmail" aria-label="Copy email">Copy email</button>
+              <span class="copy-feedback" id="copyFeedback" aria-live="polite"></span>
+            </div>
+            <div class="contact-resume">
+              <a href="ResumeOLNew.pdf" target="_blank" rel="noopener noreferrer" class="social-link">Resume (PDF)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="currentYear"></span> Aditya Roy Chowdhury. Built for GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
