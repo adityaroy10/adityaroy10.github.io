@@ -38,7 +38,7 @@
 
   <main>
     <section class="hero" id="hero">
-      <div class="container hero__grid">
+      <div class="container container--wide hero__grid">
         <div class="hero__left-col animate-in" style="--i: 0">
           <div class="hero__photo">
             <img src="assets/profile.jpg" alt="Aditya Roy Chowdhury" />
@@ -66,140 +66,17 @@
 
         <div class="hero__right-col hero__feed-container animate-in" style="--i: 2">
           <div class="feed__header">
-            <span class="feed__title">Updates &amp; Milestones</span>
-            <span class="feed__badge"><span class="feed__badge-dot"></span>Live Feed</span>
+            <div class="feed__header-left">
+              <span class="feed__title">Updates &amp; Milestones</span>
+              <span class="feed__badge"><span class="feed__badge-dot"></span>Live Feed</span>
+            </div>
+            <div class="feed__header-actions admin-only">
+              <button type="button" id="addPostBtn" class="btn btn--xs btn--primary" title="Add new update">+ Update</button>
+              <button type="button" id="exportFeedBtn" class="btn btn--xs btn--ghost" title="Export current feed to JSON">Export JSON</button>
+            </div>
           </div>
-          <div class="feed__posts">
-            <!-- Post 1: USC Graduation -->
-            <article class="feed-card">
-              <div class="feed-card__header">
-                <img class="feed-card__avatar" src="assets/profile.jpg" alt="Aditya" />
-                <div class="feed-card__meta">
-                  <span class="feed-card__name">Aditya Roy Chowdhury</span>
-                  <span class="feed-card__headline">ML Engineer &amp; MS CS @ USC</span>
-                  <span class="feed-card__date">May 2026</span>
-                </div>
-              </div>
-              <div class="feed-card__body">
-                <p>Official: Master of Science in Computer Science from the University of Southern California (USC)! 🎓🔴🟡</p>
-                <p>Incredible 2 years of learning deep learning, advanced computer vision, and building amazing lifelong connections. Grateful for everyone who supported me throughout this journey. Next stop: Carleton University for my MASc/PhD in ECE! 🚀</p>
-                <span class="feed-card__hashtags">#graduation #usc #fighton #computerScience</span>
-              </div>
-              <div class="feed-card__footer">
-                <div class="feed-card__reactions">
-                  <span class="feed-card__reaction-icons">👍❤️</span>
-                  <span class="feed-card__reaction-count">84</span>
-                </div>
-                <div class="feed-card__actions">
-                  <button type="button" class="feed-card__action-btn feed-card__like-btn" data-liked="false" data-count="84">
-                    <svg class="action-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>
-                    <span>Like</span>
-                  </button>
-                  <button type="button" class="feed-card__action-btn">
-                    <svg class="action-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
-                    <span>Comment</span>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <!-- Post 2: Vector Scholarship -->
-            <article class="feed-card">
-              <div class="feed-card__header">
-                <img class="feed-card__avatar" src="assets/profile.jpg" alt="Aditya" />
-                <div class="feed-card__meta">
-                  <span class="feed-card__name">Aditya Roy Chowdhury</span>
-                  <span class="feed-card__headline">Incoming Graduate Student @ Carleton</span>
-                  <span class="feed-card__date">Mar 2026</span>
-                </div>
-              </div>
-              <div class="feed-card__body">
-                <p>Extremely honored to receive the prestigious Vector Scholarship in Artificial Intelligence! 🏆 AI-focused research and learning is ready to be accelerated. Ready to push the boundaries of AI deployment and edge computing in Canada. 🇨🇦</p>
-                <span class="feed-card__hashtags">#VectorScholarship #AI #machinelearning #academic</span>
-              </div>
-              <div class="feed-card__footer">
-                <div class="feed-card__reactions">
-                  <span class="feed-card__reaction-icons">👍❤️</span>
-                  <span class="feed-card__reaction-count">62</span>
-                </div>
-                <div class="feed-card__actions">
-                  <button type="button" class="feed-card__action-btn feed-card__like-btn" data-liked="false" data-count="62">
-                    <svg class="action-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>
-                    <span>Like</span>
-                  </button>
-                  <button type="button" class="feed-card__action-btn">
-                    <svg class="action-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
-                    <span>Comment</span>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <!-- Post 3: AWS Summit -->
-            <article class="feed-card">
-              <div class="feed-card__header">
-                <img class="feed-card__avatar" src="assets/profile.jpg" alt="Aditya" />
-                <div class="feed-card__meta">
-                  <span class="feed-card__name">Aditya Roy Chowdhury</span>
-                  <span class="feed-card__headline">ML Engineer &amp; MS CS @ USC</span>
-                  <span class="feed-card__date">Oct 2025</span>
-                </div>
-              </div>
-              <div class="feed-card__body">
-                <p>Had an amazing time attending the AWS Summit! ☁️ Experienced incredible keynotes on next-generation cloud architectures, decentralized inference, and large-scale model serving.</p>
-                <p>Met awesome builders and brought back fresh ideas for cloud-native deployment!</p>
-                <span class="feed-card__hashtags">#AWS #AWSSummit #cloudComputing #MLOps</span>
-              </div>
-              <div class="feed-card__footer">
-                <div class="feed-card__reactions">
-                  <span class="feed-card__reaction-icons">👍❤️</span>
-                  <span class="feed-card__reaction-count">45</span>
-                </div>
-                <div class="feed-card__actions">
-                  <button type="button" class="feed-card__action-btn feed-card__like-btn" data-liked="false" data-count="45">
-                    <svg class="action-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>
-                    <span>Like</span>
-                  </button>
-                  <button type="button" class="feed-card__action-btn">
-                    <svg class="action-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
-                    <span>Comment</span>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <!-- Post 4: ICTP Intern -->
-            <article class="feed-card">
-              <div class="feed-card__header">
-                <img class="feed-card__avatar" src="assets/profile.jpg" alt="Aditya" />
-                <div class="feed-card__meta">
-                  <span class="feed-card__name">Aditya Roy Chowdhury</span>
-                  <span class="feed-card__headline">ML Intern @ ICTP</span>
-                  <span class="feed-card__date">Feb 2024</span>
-                </div>
-              </div>
-              <div class="feed-card__body">
-                <p>Thrilled to share that I have joined the International Centre for Theoretical Physics (ICTP) in Trieste, Italy as an ML Engineer Intern! 🇮🇹</p>
-                <p>Working on low-power, high-efficiency object detection pipelines optimized for FPGA hardware deployment. Experiencing Trieste's gorgeous coast is a wonderful bonus! 🌊</p>
-                <span class="feed-card__hashtags">#internship #ICTP #edgeAI #embeddedML</span>
-              </div>
-              <div class="feed-card__footer">
-                <div class="feed-card__reactions">
-                  <span class="feed-card__reaction-icons">👍❤️</span>
-                  <span class="feed-card__reaction-count">71</span>
-                </div>
-                <div class="feed-card__actions">
-                  <button type="button" class="feed-card__action-btn feed-card__like-btn" data-liked="false" data-count="71">
-                    <svg class="action-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>
-                    <span>Like</span>
-                  </button>
-                  <button type="button" class="feed-card__action-btn">
-                    <svg class="action-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
-                    <span>Comment</span>
-                  </button>
-                </div>
-              </div>
-            </article>
+          <div class="feed__posts" id="feedPosts">
+            <!-- Dynamically populated via JS -->
           </div>
         </div>
       </div>
@@ -591,6 +468,49 @@
       <p>© <span id="currentYear"></span> Aditya Roy Chowdhury. Built for GitHub Pages.</p>
     </div>
   </footer>
+
+  <!-- Admin Modal Overlay -->
+  <div id="adminModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <div class="modal-card__header">
+        <h3 id="modalTitle" class="modal-card__title">Create Update / Milestone</h3>
+        <button id="closeModalBtn" class="modal-card__close" aria-label="Close modal">&times;</button>
+      </div>
+      <form id="addPostForm" class="modal-card__form">
+        <div class="form-group">
+          <label for="postHeadline" class="form-label">Headline / Title</label>
+          <input type="text" id="postHeadline" class="form-input" placeholder="e.g. ML Engineer & MS CS @ USC" required />
+        </div>
+        <div class="form-group">
+          <label for="postDate" class="form-label">Date</label>
+          <input type="text" id="postDate" class="form-input" placeholder="e.g. May 2026" required />
+        </div>
+        <div class="form-group">
+          <label for="postContent" class="form-label">Content (Multiple paragraphs supported)</label>
+          <textarea id="postContent" class="form-input form-textarea" rows="4" placeholder="Write your update details... (Press Enter for new paragraphs)" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="postImage" class="form-label">Upload Image (Supports PNG/JPG, auto-converted to Base64)</label>
+          <div class="file-upload-wrapper">
+            <input type="file" id="postImage" class="form-file-input" accept="image/*" />
+            <div class="file-upload-preview" id="imagePreviewContainer" style="display: none;">
+              <img id="imagePreview" src="" alt="Upload Preview" />
+              <button type="button" id="removeImageBtn" class="file-upload-remove">&times; Remove</button>
+            </div>
+            <span class="file-upload-hint">Recommended size: under 500KB (max 1.5MB for storage limit)</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="postHashtags" class="form-label">Hashtags</label>
+          <input type="text" id="postHashtags" class="form-input" placeholder="e.g. #graduation #usc #ml" />
+        </div>
+        <div class="modal-card__footer">
+          <button type="button" id="cancelPostBtn" class="btn btn--ghost">Cancel</button>
+          <button type="submit" class="btn btn--primary">Publish Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

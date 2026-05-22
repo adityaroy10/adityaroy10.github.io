@@ -10,6 +10,10 @@
   max-width: 560px;
 }
 
+.container--wide {
+  max-width: min(95vw, 1360px);
+}
+
 /* ----- Header ----- */
 .site-header {
   position: fixed;
