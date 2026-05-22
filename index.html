@@ -38,6 +38,7 @@
 
   <main>
     <section class="hero" id="hero">
+      <canvas id="hero-canvas"></canvas>
       <div class="container container--wide hero__grid">
         <div class="hero__left-col animate-in" style="--i: 0">
           <div class="hero__photo">
@@ -501,6 +502,10 @@
           </div>
         </div>
         <div class="form-group">
+          <label for="postLinkedin" class="form-label">LinkedIn Post URL (Optional)</label>
+          <input type="url" id="postLinkedin" class="form-input" placeholder="e.g. https://www.linkedin.com/posts/adityaroy12_graduation-activity-..." />
+        </div>
+        <div class="form-group">
           <label for="postHashtags" class="form-label">Hashtags</label>
           <input type="text" id="postHashtags" class="form-input" placeholder="e.g. #graduation #usc #ml" />
         </div>
@@ -513,5 +518,6 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script src="js/hero-canvas.js" defer></script>
 </body>
 </html>

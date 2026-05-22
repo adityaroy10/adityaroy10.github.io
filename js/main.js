@@ -198,8 +198,9 @@
         "Incredible 2 years of learning deep learning, advanced computer vision, and building amazing lifelong connections. Grateful for everyone who supported me throughout this journey. Next stop: Carleton University for my MASc/PhD in ECE! 🚀"
       ],
       hashtags: "#graduation #usc #fighton #computerScience",
-      likes: 84,
-      image: ""
+      likes: 0,
+      image: "",
+      linkedinUrl: "https://linkedin.com/in/adityaroy12"
     },
     {
       id: "post-2",
@@ -211,8 +212,9 @@
         "Extremely honored to receive the prestigious Vector Scholarship in Artificial Intelligence! 🏆 AI-focused research and learning is ready to be accelerated. Ready to push the boundaries of AI deployment and edge computing in Canada. 🇨🇦"
       ],
       hashtags: "#VectorScholarship #AI #machinelearning #academic",
-      likes: 62,
-      image: ""
+      likes: 0,
+      image: "",
+      linkedinUrl: "https://linkedin.com/in/adityaroy12"
     },
     {
       id: "post-3",
@@ -225,8 +227,9 @@
         "Met awesome builders and brought back fresh ideas for cloud-native deployment!"
       ],
       hashtags: "#AWS #AWSSummit #cloudComputing #MLOps",
-      likes: 45,
-      image: ""
+      likes: 0,
+      image: "",
+      linkedinUrl: "https://linkedin.com/in/adityaroy12"
     },
     {
       id: "post-4",
@@ -239,8 +242,9 @@
         "Working on low-power, high-efficiency object detection pipelines optimized for FPGA hardware deployment. Experiencing Trieste's gorgeous coast is a wonderful bonus! 🌊"
       ],
       hashtags: "#internship #ICTP #edgeAI #embeddedML",
-      likes: 71,
-      image: ""
+      likes: 0,
+      image: "",
+      linkedinUrl: "https://linkedin.com/in/adityaroy12"
     }
   ];
 
@@ -283,7 +287,7 @@
 
   function getLikedPosts() {
     try {
-      return JSON.parse(localStorage.getItem('portfolio_feed_likes') || '{}');
+      return JSON.parse(localStorage.getItem('portfolio_feed_likes_v2') || '{}');
     } catch (e) {
       return {};
     }
@@ -298,7 +302,7 @@
       liked[postId] = true;
       isLikedNow = true;
     }
-    localStorage.setItem('portfolio_feed_likes', JSON.stringify(liked));
+    localStorage.setItem('portfolio_feed_likes_v2', JSON.stringify(liked));
     return isLikedNow;
   }
 
@@ -394,7 +398,7 @@
         '  </div>' +
         '  <div class="feed-card__footer">' +
         '    <div class="feed-card__reactions">' +
-        '      <span class="feed-card__reaction-icons">👍❤️</span>' +
+        '      <span class="feed-card__reaction-icons">👍</span>' +
         '      <span class="feed-card__reaction-count">' + currentLikes + '</span>' +
         '    </div>' +
         '    <div class="feed-card__actions">' +
@@ -402,10 +406,10 @@
         '        <svg class="action-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>' +
         '        <span>Like</span>' +
         '      </button>' +
-        '      <button type="button" class="feed-card__action-btn">' +
-        '        <svg class="action-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>' +
-        '        <span>Comment</span>' +
-        '      </button>' +
+        (post.linkedinUrl ? '      <a href="' + post.linkedinUrl + '" target="_blank" rel="noopener noreferrer" class="feed-card__action-btn feed-card__linkedin-btn">' +
+        '        <svg class="action-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>' +
+        '        <span>View Post</span>' +
+        '      </a>' : '') +
         '    </div>' +
         '  </div>' +
         '</article>';
@@ -550,6 +554,7 @@
         var headline = document.getElementById('postHeadline').value.trim();
         var date = document.getElementById('postDate').value.trim();
         var rawContent = document.getElementById('postContent').value.trim();
+        var linkedin = document.getElementById('postLinkedin').value.trim();
         var hashtags = document.getElementById('postHashtags').value.trim();
 
         // Split paragraphs by newline
@@ -566,7 +571,8 @@
           content: contentArray,
           hashtags: hashtags,
           likes: 0,
-          image: base64Image
+          image: base64Image,
+          linkedinUrl: linkedin
         };
 
         var customPosts = getCustomPosts();
