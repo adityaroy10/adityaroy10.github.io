@@ -184,4 +184,32 @@
       index = 0;
     }
   });
+
+  // ----- Interactive Feed Likes -----
+  document.querySelectorAll('.feed-card__like-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var isLiked = btn.getAttribute('data-liked') === 'true';
+      var baseCount = parseInt(btn.getAttribute('data-count'), 10);
+      var currentLiked = !isLiked;
+      var newCount = currentLiked ? baseCount + 1 : baseCount;
+
+      btn.setAttribute('data-liked', currentLiked ? 'true' : 'false');
+      btn.classList.toggle('is-liked', currentLiked);
+
+      var countEl = btn.closest('.feed-card').querySelector('.feed-card__reaction-count');
+      if (countEl) {
+        countEl.textContent = newCount;
+      }
+
+      // Add a premium pop micro-animation
+      var icon = btn.querySelector('.action-icon');
+      if (icon) {
+        icon.style.transform = 'scale(1.25) rotate(-8deg)';
+        icon.style.transition = 'transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        setTimeout(function () {
+          icon.style.transform = '';
+        }, 150);
+      }
+    });
+  });
 })();

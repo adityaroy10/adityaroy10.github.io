@@ -26,19 +26,43 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: var(--header-height);
+  padding-top: calc(var(--header-height) + var(--space-xl));
   padding-bottom: var(--space-2xl);
+  position: relative;
+  overflow: hidden;
 }
 
-.hero__content {
-  max-width: 640px;
-  margin-inline: auto;
-  text-align: center;
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  width: 100%;
 }
 
-/* Circular profile photo (higher specificity for GitHub Pages / cache) */
+@media (min-width: 992px) {
+  .hero__grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: var(--space-3xl);
+  }
+}
+
+.hero__left-col {
+  max-width: 600px;
+  text-align: left;
+}
+
+@media (max-width: 991px) {
+  .hero__left-col {
+    margin-inline: auto;
+    text-align: center;
+    max-width: 580px;
+    margin-bottom: var(--space-md);
+  }
+}
+
+/* Circular profile photo */
 .hero .hero__photo {
-  margin: 0 auto var(--space-lg);
   width: 144px;
   height: 144px;
   -webkit-border-radius: 50%;
@@ -47,6 +71,13 @@
   border: 3px solid var(--border);
   flex-shrink: 0;
   display: block;
+  margin-bottom: var(--space-lg);
+}
+
+@media (max-width: 991px) {
+  .hero .hero__photo {
+    margin-inline: auto;
+  }
 }
 
 .hero .hero__photo img {
@@ -68,7 +99,7 @@
 }
 
 .hero__name {
-  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.03em;
@@ -83,23 +114,285 @@
 
 .hero__bio {
   color: var(--text-secondary);
-  margin: 0 auto var(--space-xl);
-  max-width: 52ch;
+  margin: 0 0 var(--space-xl);
+  max-width: 54ch;
+  line-height: 1.6;
+}
+
+@media (max-width: 991px) {
+  .hero__bio {
+    margin-inline: auto;
+  }
 }
 
 .hero__cta {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+@media (max-width: 991px) {
+  .hero__cta {
+    justify-content: center;
+  }
 }
 
 .hero__social {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: var(--space-lg);
-  margin-top: var(--space-xl);
+}
+
+@media (max-width: 991px) {
+  .hero__social {
+    justify-content: center;
+  }
+}
+
+/* ----- LinkedIn Style Feed Section ----- */
+.hero__feed-container {
+  display: flex;
+  flex-direction: column;
+  background: rgba(22, 22, 25, 0.45);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: var(--space-lg);
+  max-width: 480px;
+  width: 100%;
+  margin-inline: auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: border-color var(--duration-normal), box-shadow var(--duration-normal);
+}
+
+@media (max-width: 991px) {
+  .hero__feed-container {
+    max-width: 580px;
+  }
+}
+
+.hero__feed-container:hover {
+  border-color: rgba(34, 211, 200, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 30px rgba(34, 211, 200, 0.05);
+}
+
+.feed__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.feed__title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.feed__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background: rgba(34, 211, 200, 0.1);
+  color: var(--accent);
+  padding: 0.25rem 0.625rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.feed__badge-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.6; }
+}
+
+.feed__posts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: var(--space-xs);
+  scroll-behavior: smooth;
+}
+
+@media (min-width: 992px) {
+  .feed__posts {
+    max-height: 440px;
+  }
+}
+
+/* Custom Scrollbar for modern feed */
+.feed__posts::-webkit-scrollbar {
+  width: 5px;
+}
+.feed__posts::-webkit-scrollbar-track {
+  background: transparent;
+}
+.feed__posts::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+}
+.feed__posts::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Feed Cards */
+.feed-card {
+  background: rgba(26, 26, 30, 0.6);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: var(--space-md);
+  transition: border-color var(--duration-fast);
+}
+
+.feed-card:hover {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.feed-card__header {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.feed-card__avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  object-fit: cover;
+}
+
+.feed-card__meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.feed-card__name {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.feed-card__headline {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.2;
+  margin-top: 1px;
+}
+
+.feed-card__date {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.feed-card__body {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: var(--space-md);
+}
+
+.feed-card__body p {
+  margin: 0 0 var(--space-xs);
+}
+.feed-card__body p:last-of-type {
+  margin-bottom: var(--space-xs);
+}
+
+.feed-card__hashtags {
+  display: block;
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 0.75rem;
+  margin-top: var(--space-xs);
+}
+
+.feed-card__footer {
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-xs);
+}
+
+.feed-card__reactions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.feed-card__reaction-icons {
+  font-size: 0.75rem;
+}
+
+.feed-card__actions {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-xs);
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  padding-top: 4px;
+}
+
+.feed-card__action-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background var(--duration-fast), color var(--duration-fast);
+}
+
+.feed-card__action-btn:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+}
+
+.feed-card__action-btn .action-icon {
+  width: 14px;
+  height: 14px;
+  transition: transform var(--duration-fast);
+}
+
+.feed-card__action-btn:hover .action-icon {
+  transform: scale(1.1);
+}
+
+/* Like active state */
+.feed-card__like-btn.is-liked {
+  color: var(--accent);
+}
+.feed-card__like-btn.is-liked .action-icon {
+  fill: var(--accent);
 }
 
 .hero__scroll-hint {
@@ -115,6 +408,13 @@
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+/* Hide scroll hint on smaller height viewports or split screens on desktop if too crowded */
+@media (max-height: 800px) {
+  .hero__scroll-hint {
+    display: none;
+  }
 }
 
 .scroll-indicator {

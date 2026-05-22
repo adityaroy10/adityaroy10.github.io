@@ -38,28 +38,169 @@
 
   <main>
     <section class="hero" id="hero">
-      <div class="hero__content">
-        <div class="hero__photo animate-in" style="--i: 0">
-          <img src="assets/profile.jpg" alt="Aditya Roy Chowdhury" />
+      <div class="container hero__grid">
+        <div class="hero__left-col animate-in" style="--i: 0">
+          <div class="hero__photo">
+            <img src="assets/profile.jpg" alt="Aditya Roy Chowdhury" />
+          </div>
+          <p class="hero__greeting">Hi, I'm</p>
+          <h1 class="hero__name">Aditya Roy Chowdhury</h1>
+          <p class="hero__tagline">ML Engineer & MS CS @ USC</p>
+          <p class="hero__bio">Machine Learning Engineer and MS CS student at USC specializing in model compression, multimodal systems, and ML deployment. Experienced in leading production-oriented ML pipelines across vision, language models, and embedded platforms.</p>
+          <div class="hero__cta">
+            <a href="#projects" class="btn btn--primary">View work</a>
+            <a href="#contact" class="btn btn--ghost">Get in touch</a>
+          </div>
+          <div class="hero__social" aria-label="Social links">
+            <a href="mailto:rcaditya10@gmail.com" class="icon-link" aria-label="Email">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+            <a href="https://linkedin.com/in/adityaroy12" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="LinkedIn">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://github.com/adityaroy10" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="GitHub">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .32.21.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+          </div>
         </div>
-        <p class="hero__greeting animate-in">Hi, I'm</p>
-        <h1 class="hero__name animate-in" style="--i: 1">Aditya Roy Chowdhury</h1>
-        <p class="hero__tagline animate-in" style="--i: 2">ML Engineer & MS CS @ USC</p>
-        <p class="hero__bio animate-in" style="--i: 3">Machine Learning Engineer and MS CS student at USC specializing in model compression, multimodal systems, and ML deployment. Experienced in leading production-oriented ML pipelines across vision, language models, and embedded platforms.</p>
-        <div class="hero__cta animate-in" style="--i: 4">
-          <a href="#projects" class="btn btn--primary">View work</a>
-          <a href="#contact" class="btn btn--ghost">Get in touch</a>
-        </div>
-        <div class="hero__social animate-in" style="--i: 5" aria-label="Social links">
-          <a href="mailto:rcaditya10@gmail.com" class="icon-link" aria-label="Email">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          </a>
-          <a href="https://linkedin.com/in/adityaroy12" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="LinkedIn">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-          <a href="https://github.com/adityaroy10" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="GitHub">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .32.21.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          </a>
+
+        <div class="hero__right-col hero__feed-container animate-in" style="--i: 2">
+          <div class="feed__header">
+            <span class="feed__title">Updates &amp; Milestones</span>
+            <span class="feed__badge"><span class="feed__badge-dot"></span>Live Feed</span>
+          </div>
+          <div class="feed__posts">
+            <!-- Post 1: USC Graduation -->
+            <article class="feed-card">
+              <div class="feed-card__header">
+                <img class="feed-card__avatar" src="assets/profile.jpg" alt="Aditya" />
+                <div class="feed-card__meta">
+                  <span class="feed-card__name">Aditya Roy Chowdhury</span>
+                  <span class="feed-card__headline">ML Engineer &amp; MS CS @ USC</span>
+                  <span class="feed-card__date">May 2026</span>
+                </div>
+              </div>
+              <div class="feed-card__body">
+                <p>Official: Master of Science in Computer Science from the University of Southern California (USC)! 🎓🔴🟡</p>
+                <p>Incredible 2 years of learning deep learning, advanced computer vision, and building amazing lifelong connections. Grateful for everyone who supported me throughout this journey. Next stop: Carleton University for my MASc/PhD in ECE! 🚀</p>
+                <span class="feed-card__hashtags">#graduation #usc #fighton #computerScience</span>
+              </div>
+              <div class="feed-card__footer">
+                <div class="feed-card__reactions">
+                  <span class="feed-card__reaction-icons">👍❤️</span>
+                  <span class="feed-card__reaction-count">84</span>
+                </div>
+                <div class="feed-card__actions">
+                  <button type="button" class="feed-card__action-btn feed-card__like-btn" data-liked="false" data-count="84">
+                    <svg class="action-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>
+                    <span>Like</span>
+                  </button>
+                  <button type="button" class="feed-card__action-btn">
+                    <svg class="action-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+                    <span>Comment</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Post 2: Vector Scholarship -->
+            <article class="feed-card">
+              <div class="feed-card__header">
+                <img class="feed-card__avatar" src="assets/profile.jpg" alt="Aditya" />
+                <div class="feed-card__meta">
+                  <span class="feed-card__name">Aditya Roy Chowdhury</span>
+                  <span class="feed-card__headline">Incoming Graduate Student @ Carleton</span>
+                  <span class="feed-card__date">Mar 2026</span>
+                </div>
+              </div>
+              <div class="feed-card__body">
+                <p>Extremely honored to receive the prestigious Vector Scholarship in Artificial Intelligence! 🏆 AI-focused research and learning is ready to be accelerated. Ready to push the boundaries of AI deployment and edge computing in Canada. 🇨🇦</p>
+                <span class="feed-card__hashtags">#VectorScholarship #AI #machinelearning #academic</span>
+              </div>
+              <div class="feed-card__footer">
+                <div class="feed-card__reactions">
+                  <span class="feed-card__reaction-icons">👍❤️</span>
+                  <span class="feed-card__reaction-count">62</span>
+                </div>
+                <div class="feed-card__actions">
+                  <button type="button" class="feed-card__action-btn feed-card__like-btn" data-liked="false" data-count="62">
+                    <svg class="action-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>
+                    <span>Like</span>
+                  </button>
+                  <button type="button" class="feed-card__action-btn">
+                    <svg class="action-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+                    <span>Comment</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Post 3: AWS Summit -->
+            <article class="feed-card">
+              <div class="feed-card__header">
+                <img class="feed-card__avatar" src="assets/profile.jpg" alt="Aditya" />
+                <div class="feed-card__meta">
+                  <span class="feed-card__name">Aditya Roy Chowdhury</span>
+                  <span class="feed-card__headline">ML Engineer &amp; MS CS @ USC</span>
+                  <span class="feed-card__date">Oct 2025</span>
+                </div>
+              </div>
+              <div class="feed-card__body">
+                <p>Had an amazing time attending the AWS Summit! ☁️ Experienced incredible keynotes on next-generation cloud architectures, decentralized inference, and large-scale model serving.</p>
+                <p>Met awesome builders and brought back fresh ideas for cloud-native deployment!</p>
+                <span class="feed-card__hashtags">#AWS #AWSSummit #cloudComputing #MLOps</span>
+              </div>
+              <div class="feed-card__footer">
+                <div class="feed-card__reactions">
+                  <span class="feed-card__reaction-icons">👍❤️</span>
+                  <span class="feed-card__reaction-count">45</span>
+                </div>
+                <div class="feed-card__actions">
+                  <button type="button" class="feed-card__action-btn feed-card__like-btn" data-liked="false" data-count="45">
+                    <svg class="action-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>
+                    <span>Like</span>
+                  </button>
+                  <button type="button" class="feed-card__action-btn">
+                    <svg class="action-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+                    <span>Comment</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Post 4: ICTP Intern -->
+            <article class="feed-card">
+              <div class="feed-card__header">
+                <img class="feed-card__avatar" src="assets/profile.jpg" alt="Aditya" />
+                <div class="feed-card__meta">
+                  <span class="feed-card__name">Aditya Roy Chowdhury</span>
+                  <span class="feed-card__headline">ML Intern @ ICTP</span>
+                  <span class="feed-card__date">Feb 2024</span>
+                </div>
+              </div>
+              <div class="feed-card__body">
+                <p>Thrilled to share that I have joined the International Centre for Theoretical Physics (ICTP) in Trieste, Italy as an ML Engineer Intern! 🇮🇹</p>
+                <p>Working on low-power, high-efficiency object detection pipelines optimized for FPGA hardware deployment. Experiencing Trieste's gorgeous coast is a wonderful bonus! 🌊</p>
+                <span class="feed-card__hashtags">#internship #ICTP #edgeAI #embeddedML</span>
+              </div>
+              <div class="feed-card__footer">
+                <div class="feed-card__reactions">
+                  <span class="feed-card__reaction-icons">👍❤️</span>
+                  <span class="feed-card__reaction-count">71</span>
+                </div>
+                <div class="feed-card__actions">
+                  <button type="button" class="feed-card__action-btn feed-card__like-btn" data-liked="false" data-count="71">
+                    <svg class="action-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>
+                    <span>Like</span>
+                  </button>
+                  <button type="button" class="feed-card__action-btn">
+                    <svg class="action-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+                    <span>Comment</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
       <div class="hero__scroll-hint" aria-hidden="true">
