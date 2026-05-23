@@ -57,6 +57,27 @@
   text-align: left;
 }
 
+.energy-score {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--accent);
+  font-weight: 600;
+  z-index: 10;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 12px var(--accent-glow);
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 204, 0, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
 /* ----- LinkedIn Style Feed Section ----- */
 .hero__feed-container {
   display: flex;
@@ -75,8 +96,8 @@
 }
 
 .hero__feed-container:hover {
-  border-color: rgba(34, 211, 200, 0.2);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 30px rgba(34, 211, 200, 0.05);
+  border-color: rgba(255, 204, 0, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 30px rgba(255, 204, 0, 0.05);
 }
 
 @media (max-width: 991px) {
@@ -214,7 +235,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
-  background: rgba(34, 211, 200, 0.1);
+  background: rgba(255, 204, 0, 0.1);
   color: var(--accent);
   padding: 0.25rem 0.625rem;
   border-radius: 20px;
@@ -595,7 +616,7 @@
   transition: border-color var(--duration-normal), transform var(--duration-normal) var(--ease-out);
 }
 .card:hover {
-  border-color: rgba(34, 211, 200, 0.2);
+  border-color: rgba(255, 204, 0, 0.2);
 }
 
 .card__meta {
@@ -676,7 +697,7 @@
   transition: border-color var(--duration-normal), transform var(--duration-normal) var(--ease-out);
 }
 .grid--projects .project-card:hover {
-  border-color: rgba(34, 211, 200, 0.2);
+  border-color: rgba(255, 204, 0, 0.2);
   transform: translateY(-4px);
 }
 
@@ -750,7 +771,7 @@
   transition: transform var(--duration-normal) var(--ease-out), border-color var(--duration-fast), box-shadow var(--duration-fast);
 }
 .outside-card--link:hover {
-  border-color: rgba(34, 211, 200, 0.25);
+  border-color: rgba(255, 204, 0, 0.25);
   box-shadow: 0 0 20px var(--accent-glow);
 }
 .outside-card--link .card__title {
@@ -1040,7 +1061,7 @@ body.is-admin .admin-only {
 .form-input:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(34, 211, 200, 0.1);
+  box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.1);
 }
 
 .form-textarea {

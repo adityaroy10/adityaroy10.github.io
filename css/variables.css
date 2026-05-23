@@ -11,10 +11,10 @@
   --text-secondary: #9a9aa3;
   --text-muted: #6b6b73;
 
-  /* Accent - teal/cyan (change to your preference) */
-  --accent: #22d3c8;
-  --accent-dim: #1aa89f;
-  --accent-glow: rgba(34, 211, 200, 0.25);
+  /* Accent - USC Cardinal & Gold */
+  --accent: #FFCC00; /* Gold */
+  --accent-dim: #990000; /* Cardinal */
+  --accent-glow: rgba(255, 204, 0, 0.25);
 
   /* Borders & surfaces */
   --border: rgba(255, 255, 255, 0.06);

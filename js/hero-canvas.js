@@ -5,10 +5,11 @@
   const ctx = canvas.getContext('2d', { alpha: true });
   let width, height;
   let particles = [];
-  const particleCount = 350; // Increased density for a richer galaxy effect
+  const particleCount = 400; // Increased density for a richer galaxy effect
   
   // Track mouse position relative to canvas
   let mouse = { x: -1000, y: -1000 };
+  
   
   function resize() {
     // Make canvas full screen of its container
@@ -25,37 +26,6 @@
   window.addEventListener('resize', resize);
   resize();
 
-  document.getElementById('hero').addEventListener('mousemove', (e) => {
-    const rect = canvas.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
-  });
-
-  document.getElementById('hero').addEventListener('mouseleave', () => {
-    mouse.x = -1000;
-    mouse.y = -1000;
-  });
-
-  document.getElementById('hero').addEventListener('click', (e) => {
-    const rect = canvas.getBoundingClientRect();
-    let cx = e.clientX - rect.left;
-    let cy = e.clientY - rect.top;
-    
-    // Explosive scatter shockwave
-    particles.forEach(p => {
-      let dx = p.x - cx;
-      let dy = p.y - cy;
-      let dist = Math.sqrt(dx * dx + dy * dy);
-      
-      if (dist < 600) { // Large shockwave radius
-        let force = Math.pow((600 - dist) / 600, 2); // Non-linear force dropoff for punchier explosion
-        // Apply massive velocity outward
-        p.vx += (dx / dist) * force * 50;
-        p.vy += (dy / dist) * force * 50;
-      }
-    });
-  });
-
   class Particle {
     constructor() {
       this.x = Math.random() * width;
@@ -63,12 +33,14 @@
       this.vx = (Math.random() - 0.5) * 2;
       this.vy = (Math.random() - 0.5) * 2;
       this.radius = Math.random() * 1.5 + 0.5;
-      // Vibrant teal and indigo
-      this.baseColor = Math.random() > 0.4 ? 'rgba(0, 255, 204, ' : 'rgba(102, 126, 234, '; 
+      // USC Cardinal and Gold
+      this.baseColor = Math.random() > 0.5 ? 'rgba(153, 0, 0, ' : 'rgba(255, 204, 0, '; 
       this.wanderAngle = Math.random() * Math.PI * 2;
+      this.invisible = false;
     }
 
     update() {
+      
       // Organic wandering motion
       this.wanderAngle += (Math.random() - 0.5) * 0.3;
       this.vx += Math.cos(this.wanderAngle) * 0.05;
@@ -85,6 +57,8 @@
         this.vx += (dx / dist) * force * 0.8;
         this.vy += (dy / dist) * force * 0.8;
       }
+      
+      this.invisible = (dist < 50 && mouse.x !== -1000);
 
       // Natural Friction
       this.vx *= 0.95;
@@ -100,11 +74,17 @@
       this.x += this.vx;
       this.y += this.vy;
 
-      // Screen wrap-around
-      if (this.x < -20) this.x = width + 20;
-      if (this.x > width + 20) this.x = -20;
-      if (this.y < -20) this.y = height + 20;
-      if (this.y > height + 20) this.y = -20;
+      // Screen wrap-around or cull if overpopulated
+      if (this.x < -20 || this.x > width + 20 || this.y < -20 || this.y > height + 20) {
+        if (particles.length > particleCount) {
+          this.dead = true;
+        } else {
+          if (this.x < -20) this.x = width + 20;
+          if (this.x > width + 20) this.x = -20;
+          if (this.y < -20) this.y = height + 20;
+          if (this.y > height + 20) this.y = -20;
+        }
+      }
     }
 
     draw() {
@@ -125,6 +105,36 @@
     }
   }
 
+  document.getElementById('hero').addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+
+  document.getElementById('hero').addEventListener('mouseleave', () => {
+    mouse.x = -1000;
+    mouse.y = -1000;
+  });
+
+  document.getElementById('hero').addEventListener('click', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    let cx = e.clientX - rect.left;
+    let cy = e.clientY - rect.top;
+    
+    // Scatter existing particles too
+    particles.forEach(p => {
+      let dx = p.x - cx;
+      let dy = p.y - cy;
+      let dist = Math.sqrt(dx * dx + dy * dy);
+      
+      if (dist < 600) { 
+        let force = Math.pow((600 - dist) / 600, 2); 
+        p.vx += (dx / dist) * force * 50;
+        p.vy += (dy / dist) * force * 50;
+      }
+    });
+  });
+
   for (let i = 0; i < particleCount; i++) {
     particles.push(new Particle());
   }
@@ -132,10 +142,18 @@
   function animate() {
     // Fade out previous frame slightly to create motion trails
     ctx.clearRect(0, 0, width, height);
+    
+    // Cull dead particles that flew off-screen
+    particles = particles.filter(p => !p.dead);
 
+    let glowCharge = 0;
     for (let i = 0; i < particles.length; i++) {
       particles[i].update();
-      particles[i].draw();
+      if (particles[i].invisible) {
+        glowCharge++;
+      } else {
+        particles[i].draw();
+      }
     }
     
     // Draw constellation-like webbing between nearby swarm particles
@@ -148,13 +166,25 @@
         // Connect if close enough
         if (dist < 6000) { 
           ctx.beginPath();
-          ctx.strokeStyle = `rgba(0, 255, 204, ${0.1 - (dist / 6000) * 0.1})`;
+          ctx.strokeStyle = `rgba(255, 204, 0, ${0.1 - (dist / 6000) * 0.1})`;
           ctx.lineWidth = 0.6;
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
           ctx.stroke();
         }
       }
+    }
+
+    // Draw mouse energy aura
+    if (mouse.x !== -1000 && glowCharge > 0) {
+      let auraRadius = Math.min(150, 20 + glowCharge * 2.0);
+      ctx.beginPath();
+      ctx.arc(mouse.x, mouse.y, auraRadius, 0, Math.PI * 2);
+      let auraGrad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, auraRadius);
+      auraGrad.addColorStop(0, `rgba(255, 204, 0, ${Math.min(0.8, glowCharge * 0.02)})`);
+      auraGrad.addColorStop(1, 'rgba(255, 204, 0, 0)');
+      ctx.fillStyle = auraGrad;
+      ctx.fill();
     }
 
     requestAnimationFrame(animate);

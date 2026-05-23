@@ -128,8 +128,8 @@
 
 .timeline__item:hover .timeline__card,
 .timeline__item.is-expanded .timeline__card {
-  border-color: rgba(34, 211, 200, 0.35);
-  box-shadow: 0 0 0 1px rgba(34, 211, 200, 0.2), 0 0 32px var(--accent-glow);
+  border-color: rgba(255, 204, 0, 0.35);
+  box-shadow: 0 0 0 1px rgba(255, 204, 0, 0.2), 0 0 32px var(--accent-glow);
 }
 
 .timeline__item:hover .timeline__marker,
@@ -153,8 +153,8 @@
 
 .grid--projects[data-focus-section] .project-card:hover,
 .grid--projects[data-focus-section] .project-card.is-expanded {
-  border-color: rgba(34, 211, 200, 0.35);
-  box-shadow: 0 0 0 1px rgba(34, 211, 200, 0.2), 0 0 32px var(--accent-glow);
+  border-color: rgba(255, 204, 0, 0.35);
+  box-shadow: 0 0 0 1px rgba(255, 204, 0, 0.2), 0 0 32px var(--accent-glow);
 }
 
 .project-card:hover {
