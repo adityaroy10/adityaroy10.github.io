@@ -347,12 +347,23 @@
 
       // Handle content paragraphs
       var contentHTML = '';
-      if (Array.isArray(post.content)) {
-        post.content.forEach(function (p) {
+      var fullTextArr = Array.isArray(post.content) ? post.content : [post.content];
+      var fullTextStr = fullTextArr.join(' ');
+      
+      if (fullTextStr.length > 250) {
+        var abridgedHTML = '<div class="feed-card__content-abridged"><p>' + fullTextStr.substring(0, 250) + '... <button type="button" class="feed-card__see-more" style="background:none; border:none; color:var(--text-secondary); cursor:pointer; padding:0; font-size:inherit; font-family:inherit; font-weight:500;">see more</button></p></div>';
+        
+        var expandedHTML = '<div class="feed-card__content-expanded" style="display:none;">';
+        fullTextArr.forEach(function (p) {
+          expandedHTML += '<p>' + p + '</p>';
+        });
+        expandedHTML += '</div>';
+        
+        contentHTML = abridgedHTML + expandedHTML;
+      } else {
+        fullTextArr.forEach(function (p) {
           contentHTML += '<p>' + p + '</p>';
         });
-      } else {
-        contentHTML = '<p>' + post.content + '</p>';
       }
 
       // Handle hashtags
@@ -403,6 +414,17 @@
     });
 
     feedPostsContainer.innerHTML = html;
+
+    // Attach "See More" Event Listeners
+    feedPostsContainer.querySelectorAll('.feed-card__see-more').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var body = btn.closest('.feed-card__body');
+        if (body) {
+          body.querySelector('.feed-card__content-abridged').style.display = 'none';
+          body.querySelector('.feed-card__content-expanded').style.display = 'block';
+        }
+      });
+    });
 
     // Attach Delete Event Listeners (Admin only)
     if (isAdmin) {
