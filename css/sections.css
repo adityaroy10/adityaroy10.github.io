@@ -57,6 +57,11 @@
   text-align: left;
 }
 
+.hero__left-col:hover .hero__tagline,
+.hero__left-col:hover .hero__bio {
+  color: #ffffff;
+}
+
 .energy-score {
   position: absolute;
   bottom: 1.5rem;
@@ -174,6 +179,7 @@
   color: var(--text-secondary);
   font-size: 1.25rem;
   margin: 0 0 var(--space-md);
+  transition: color 0.3s ease;
 }
 
 .hero__bio {
@@ -181,6 +187,7 @@
   margin: 0 0 var(--space-xl);
   max-width: 54ch;
   line-height: 1.6;
+  transition: color 0.3s ease;
 }
 
 @media (max-width: 991px) {
@@ -283,7 +290,7 @@
   background: transparent;
 }
 .feed__posts::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--accent);
   border-radius: 3px;
 }
 .feed__posts::-webkit-scrollbar-thumb:hover {

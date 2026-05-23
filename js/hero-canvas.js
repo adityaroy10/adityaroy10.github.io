@@ -151,14 +151,31 @@
       particles[i].update();
       if (particles[i].invisible) {
         glowCharge++;
-      } else {
-        particles[i].draw();
       }
+    }
+    
+    // Draw mouse energy aura
+    if (mouse.x !== -1000 && glowCharge > 0) {
+      let auraRadius = Math.min(150, 20 + glowCharge * 2.0);
+      ctx.beginPath();
+      ctx.arc(mouse.x, mouse.y, auraRadius, 0, Math.PI * 2);
+      let auraGrad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, auraRadius);
+      auraGrad.addColorStop(0, `rgba(255, 204, 0, ${Math.min(0.35, glowCharge * 0.02)})`);
+      auraGrad.addColorStop(1, 'rgba(255, 204, 0, 0)');
+      ctx.fillStyle = auraGrad;
+      ctx.fill();
+    }
+
+    for (let i = 0; i < particles.length; i++) {
+      particles[i].draw();
     }
     
     // Draw constellation-like webbing between nearby swarm particles
     for (let i = 0; i < particles.length; i++) {
+      let connections = 0;
       for (let j = i + 1; j < particles.length; j++) {
+        if (connections > 7) break; // Prevents O(N^2) canvas stroke lag when particles clump
+        
         let dx = particles[i].x - particles[j].x;
         let dy = particles[i].y - particles[j].y;
         let dist = dx * dx + dy * dy;
@@ -171,21 +188,12 @@
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
           ctx.stroke();
+          connections++;
         }
       }
     }
 
-    // Draw mouse energy aura
-    if (mouse.x !== -1000 && glowCharge > 0) {
-      let auraRadius = Math.min(150, 20 + glowCharge * 2.0);
-      ctx.beginPath();
-      ctx.arc(mouse.x, mouse.y, auraRadius, 0, Math.PI * 2);
-      let auraGrad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, auraRadius);
-      auraGrad.addColorStop(0, `rgba(255, 204, 0, ${Math.min(0.8, glowCharge * 0.02)})`);
-      auraGrad.addColorStop(1, 'rgba(255, 204, 0, 0)');
-      ctx.fillStyle = auraGrad;
-      ctx.fill();
-    }
+    // Webbing already drawn above
 
     requestAnimationFrame(animate);
   }

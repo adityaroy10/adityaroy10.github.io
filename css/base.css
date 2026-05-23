@@ -7,7 +7,7 @@ html {
   scroll-behavior: smooth;
   /* Themed vertical scrollbar (Firefox) */
   scrollbar-width: thin;
-  scrollbar-color: var(--accent-dim) var(--bg-elevated);
+  scrollbar-color: var(--accent) var(--bg-elevated);
 }
 
 /* Themed vertical scrollbar (Chrome / Safari / Edge) */
@@ -18,7 +18,7 @@ html::-webkit-scrollbar-track {
   background: var(--bg-elevated);
 }
 html::-webkit-scrollbar-thumb {
-  background: var(--accent-dim);
+  background: var(--accent);
   border-radius: 4px;
 }
 html::-webkit-scrollbar-thumb:hover {
