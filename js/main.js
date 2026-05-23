@@ -344,8 +344,6 @@
 
     var html = '';
     allPosts.forEach(function (post) {
-      var isLiked = likedPosts[post.id] ? true : false;
-      var currentLikes = isLiked ? (post.likes + 1) : post.likes;
 
       // Handle content paragraphs
       var contentHTML = '';
@@ -393,53 +391,18 @@
         imageHTML +
         hashtagsHTML +
         '  </div>' +
-        '  <div class="feed-card__footer">' +
-        '    <div class="feed-card__reactions">' +
-        '      <span class="feed-card__reaction-icons">👍</span>' +
-        '      <span class="feed-card__reaction-count">' + currentLikes + '</span>' +
-        '    </div>' +
-        '    <div class="feed-card__actions">' +
-        '      <button type="button" class="feed-card__action-btn feed-card__like-btn ' + (isLiked ? 'is-liked' : '') + '" data-id="' + post.id + '" data-liked="' + isLiked + '" data-count="' + post.likes + '">' +
-        '        <svg class="action-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>' +
-        '        <span>Like</span>' +
-        '      </button>' +
-        (post.linkedinUrl ? '      <a href="' + post.linkedinUrl + '" target="_blank" rel="noopener noreferrer" class="feed-card__action-btn feed-card__linkedin-btn">' +
+        (post.linkedinUrl ? '  <div class="feed-card__footer">' +
+          '    <div class="feed-card__actions">' +
+          '      <a href="' + post.linkedinUrl + '" target="_blank" rel="noopener noreferrer" class="feed-card__action-btn feed-card__linkedin-btn">' +
           '        <svg class="action-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>' +
           '        <span>View Post</span>' +
-          '      </a>' : '') +
-        '    </div>' +
-        '  </div>' +
+          '      </a>' +
+          '    </div>' +
+          '  </div>' : '') +
         '</article>';
     });
 
     feedPostsContainer.innerHTML = html;
-
-    // Attach Likes Event Listeners
-    feedPostsContainer.querySelectorAll('.feed-card__like-btn').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var postId = btn.getAttribute('data-id');
-        var baseCount = parseInt(btn.getAttribute('data-count'), 10);
-        var currentLiked = toggleLike(postId);
-
-        btn.setAttribute('data-liked', currentLiked ? 'true' : 'false');
-        btn.classList.toggle('is-liked', currentLiked);
-
-        var countEl = btn.closest('.feed-card').querySelector('.feed-card__reaction-count');
-        if (countEl) {
-          countEl.textContent = currentLiked ? (baseCount + 1) : baseCount;
-        }
-
-        // Add pop animation on active
-        var icon = btn.querySelector('.action-icon');
-        if (icon) {
-          icon.style.transform = 'scale(1.25) rotate(-8deg)';
-          icon.style.transition = 'transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-          setTimeout(function () {
-            icon.style.transform = '';
-          }, 150);
-        }
-      });
-    });
 
     // Attach Delete Event Listeners (Admin only)
     if (isAdmin) {
