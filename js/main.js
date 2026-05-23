@@ -320,7 +320,17 @@
     });
 
     // Combine custom and default posts
-    var allPosts = customPosts.concat(activeDefaults);
+    var allPostsRaw = customPosts.concat(activeDefaults);
+    
+    // Deduplicate posts by ID (prevents double rendering of exported posts)
+    var seenIds = {};
+    var allPosts = [];
+    allPostsRaw.forEach(function(post) {
+      if (!seenIds[post.id]) {
+        seenIds[post.id] = true;
+        allPosts.push(post);
+      }
+    });
     
     // Sort all posts chronologically (latest on top)
     allPosts.sort(function(a, b) {
@@ -583,8 +593,22 @@
           return deletedDefaults.indexOf(post.id) === -1;
         });
 
-        // Combined data
-        var allActivePosts = customPosts.concat(activeDefaults);
+        // Combine and deduplicate data
+        var allPostsRaw = customPosts.concat(activeDefaults);
+        var seenIds = {};
+        var allActivePosts = [];
+        allPostsRaw.forEach(function(post) {
+          if (!seenIds[post.id]) {
+            seenIds[post.id] = true;
+            allActivePosts.push(post);
+          }
+        });
+
+        // Sort all posts chronologically before exporting
+        allActivePosts.sort(function(a, b) {
+          return new Date(b.date) - new Date(a.date);
+        });
+
         var jsonStr = JSON.stringify(allActivePosts, null, 2);
 
         if (navigator.clipboard && navigator.clipboard.writeText) {
