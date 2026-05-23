@@ -319,8 +319,13 @@
       return deletedDefaults.indexOf(post.id) === -1;
     });
 
-    // Combine custom and default posts (custom newest on top)
+    // Combine custom and default posts
     var allPosts = customPosts.concat(activeDefaults);
+    
+    // Sort all posts chronologically (latest on top)
+    allPosts.sort(function(a, b) {
+      return new Date(b.date) - new Date(a.date);
+    });
 
     if (allPosts.length === 0) {
       feedPostsContainer.innerHTML = '<div style="text-align:center; padding:var(--space-lg); color:var(--text-muted); font-size:0.875rem;">No updates yet.</div>';
