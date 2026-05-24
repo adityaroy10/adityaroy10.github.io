@@ -5,7 +5,7 @@
   const ctx = canvas.getContext('2d', { alpha: true });
   let width, height;
   let particles = [];
-  const particleCount = 400; // Increased density for a richer galaxy effect
+  const particleCount = 500; // Increased density for a richer galaxy effect
   
   // Track mouse position relative to canvas
   let mouse = { x: -1000, y: -1000 };
