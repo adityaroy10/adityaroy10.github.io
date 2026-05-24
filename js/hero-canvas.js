@@ -12,9 +12,9 @@
   
   
   function resize() {
-    // Make canvas full screen of its container
-    width = canvas.parentElement.offsetWidth;
-    height = canvas.parentElement.offsetHeight;
+    // Make canvas full screen globally
+    width = window.innerWidth;
+    height = window.innerHeight;
     
     // Support high DPI displays
     const dpr = window.devicePixelRatio || 1;
@@ -105,21 +105,19 @@
     }
   }
 
-  document.getElementById('hero').addEventListener('mousemove', (e) => {
-    const rect = canvas.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
+  window.addEventListener('mousemove', (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
   });
 
-  document.getElementById('hero').addEventListener('mouseleave', () => {
+  document.addEventListener('mouseleave', () => {
     mouse.x = -1000;
     mouse.y = -1000;
   });
 
-  document.getElementById('hero').addEventListener('click', (e) => {
-    const rect = canvas.getBoundingClientRect();
-    let cx = e.clientX - rect.left;
-    let cy = e.clientY - rect.top;
+  window.addEventListener('click', (e) => {
+    let cx = e.clientX;
+    let cy = e.clientY;
     
     // Scatter existing particles too
     particles.forEach(p => {
