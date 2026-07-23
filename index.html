@@ -277,6 +277,30 @@
           <div class="grid grid--projects" data-focus-section>
           <article class="project-card expandable reveal" tabindex="0">
             <div class="project-card__thumb">
+              <img src="assets/cover.png" alt="Halo, the macOS notch showing album art and playback controls" />
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Halo: macOS Notch Utility</h3>
+              <p class="project-card__summary">A lightweight Mac app that turns the MacBook notch into a live hub: a calendar, a drag-and-drop file shelf, media controls, volume and brightness HUDs, a timer, and a glanceable indicator for when Claude Code is waiting on you.</p>
+              <div class="project-card__details expandable__details">
+                <div class="expandable__details-inner">
+                  <ul>
+                    <li>Built a native macOS notch utility from scratch in Swift 6 (AppKit + SwiftUI), running as a menu-bar agent on a single reused overlay panel with an event-driven, no-polling architecture.</li>
+                    <li>Designed a priority arbiter that decides which live activity the notch peek shows across concurrent sources: volume/brightness HUDs, now playing, timers, and Bluetooth toasts.</li>
+                    <li>Held memory low and flat (~47 MB idle, ~55 MB active, 0 leaks and no growth under churn) by tearing down the SwiftUI tree on collapse and purging thumbnails at idle.</li>
+                  </ul>
+                  <div class="project-card__links">
+                    <a href="https://github.com/adityaroy10/Halo" target="_blank" rel="noopener noreferrer" class="link link--accent">Link</a>
+                  </div>
+                </div>
+              </div>
+              <div class="expandable__footer">
+                <p class="expandable__hint">Click to expand</p>
+              </div>
+            </div>
+          </article>
+          <article class="project-card expandable reveal" tabindex="0">
+            <div class="project-card__thumb">
               <img src="assets/omnistrument.png" alt="Omnistrument, a browser-based synthesizer interface" />
             </div>
             <div class="project-card__body">
